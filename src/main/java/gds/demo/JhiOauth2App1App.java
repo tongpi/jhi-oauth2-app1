@@ -20,6 +20,14 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collection;
 
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+import javax.servlet.ServletException;
+
 @SpringBootApplication
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
 public class JhiOauth2App1App implements InitializingBean {
@@ -58,6 +66,11 @@ public class JhiOauth2App1App implements InitializingBean {
      * @param args the command line arguments.
      */
     public static void main(String[] args) {
+    	try {
+			disableHostNameVerify();
+		} catch (ServletException e) {
+			e.printStackTrace();
+		}
         SpringApplication app = new SpringApplication(JhiOauth2App1App.class);
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
@@ -95,4 +108,43 @@ public class JhiOauth2App1App implements InitializingBean {
             contextPath,
             env.getActiveProfiles());
     }
+    
+	private static void disableHostNameVerify() throws ServletException {
+		try {
+
+			SSLContext sc;
+
+			// Get SSL context
+			sc = SSLContext.getInstance("SSL");
+
+			// Create empty HostnameVerifier
+			HostnameVerifier hv = new HostnameVerifier() {
+				public boolean verify(String urlHostName, SSLSession session) {
+					return true;
+				}
+			};
+
+			// Create a trust manager that does not validate certificate chains
+			TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+				public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+					return null;
+				}
+
+				public void checkClientTrusted(java.security.cert.X509Certificate[] certs, String authType) {
+				}
+
+				public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String authType) {
+				}
+			} };
+
+			sc.init(null, trustAllCerts, new java.security.SecureRandom());
+			// SSLSocketFactory sslSocketFactory = sc.getSocketFactory();
+
+			// HttpsURLConnection.setDefaultSSLSocketFactory(sslSocketFactory);
+			SSLContext.setDefault(sc);
+			HttpsURLConnection.setDefaultHostnameVerifier(hv);
+		} catch (Exception e) {
+			throw new ServletException(e);
+		}
+	}     
 }
