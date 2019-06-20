@@ -31,7 +31,14 @@ export class Home extends React.Component<IHomeProp> {
           {account && account.login ? (
             <div>
               <Alert color="success">
-                <Translate contentKey="home.logged.message" interpolate={{ username: account.login }}>
+                <Translate
+                  contentKey="home.logged.message"
+                  interpolate={{ username: account.login + '(' + account.lastName + account.firstName + ')' }}
+                >
+                  You are logged in as user {account.login}.
+                </Translate>
+                <br />
+                <Translate contentKey="home.logged.role" interpolate={{ role: account.authorities[0] }}>
                   You are logged in as user {account.login}.
                 </Translate>
               </Alert>

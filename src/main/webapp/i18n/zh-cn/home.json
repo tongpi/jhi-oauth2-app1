@@ -3,7 +3,8 @@
     "title": "欢迎, Java Hipster!",
     "subtitle": "这里是首页",
     "logged": {
-      "message": "您目前是以 \"{{username}}\" 账号登录."
+      "message": "您目前是以 \"{{username}}\" 账号登录.",
+      "role": "您的角色是： \"{{role}}\" ."
     },
     "question": "如果您有任何有关 JHipster 的问题, 可以查阅下列资源:",
     "link": {
