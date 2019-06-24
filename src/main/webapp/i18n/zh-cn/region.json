@@ -1,0 +1,22 @@
+{
+  "jhiOauth2App1App": {
+    "region": {
+      "home": {
+        "title": "地区",
+        "createLabel": "创建新 地区",
+        "createOrEditLabel": "创建或编辑 地区",
+        "notFound": "未找到地区"
+      },
+      "created": "地区 {{ param }} 创建成功",
+      "updated": "地区 {{ param }} 更新成功",
+      "deleted": "地区 {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 地区 {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "地区"
+      },
+      "regionName": "地区名称"
+    }
+  }
+}

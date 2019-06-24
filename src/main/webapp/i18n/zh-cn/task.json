@@ -1,0 +1,24 @@
+{
+  "jhiOauth2App1App": {
+    "task": {
+      "home": {
+        "title": "任务",
+        "createLabel": "创建新 任务",
+        "createOrEditLabel": "创建或编辑 任务",
+        "notFound": "未找到任务"
+      },
+      "created": "任务 {{ param }} 创建成功",
+      "updated": "任务 {{ param }} 更新成功",
+      "deleted": "任务 {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 任务 {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "任务"
+      },
+      "title": "任务",
+      "description": "说明",
+      "job": "事项"
+    }
+  }
+}
