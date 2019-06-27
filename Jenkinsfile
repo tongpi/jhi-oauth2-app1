@@ -46,4 +46,13 @@ node {
         sh "./mvnw verify -Pprod -DskipTests"
         archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
     }
+	
+    stage('dockerBuild') {
+        sh "./mvnw -Pprod verify jib:dockerBuild"
+    }
+
+    stage('本地部署运行docker-compose') {
+        sh "docker-compose -f src/main/docker/app.yml up -d"
+    }
+	
 }
