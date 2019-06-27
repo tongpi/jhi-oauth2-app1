@@ -19,6 +19,6 @@ services:
       - KEYCLOAK_PASSWORD=admin
       - DB_VENDOR=h2
     ports:
-      - 9080:9080
-      - 9443:9443
-      - 10990:10990
+      - 9680:9080
+      - 9643:9443
+      - 16990:10990

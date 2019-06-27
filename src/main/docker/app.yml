@@ -18,7 +18,7 @@ services:
       - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_JWK_SET_URI=https://is.cd.mtn:9443/oauth2/jwks
       - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
     ports:
-      - 8080:8080
+      - 8680:8080
   jhi_oauth2_app1-mysql:
     extends:
       file: mysql.yml
