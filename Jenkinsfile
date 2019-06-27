@@ -48,7 +48,7 @@ node {
     }
 	
     stage('dockerBuild') {
-        sh "./mvnw -Pprod verify jib:dockerBuild"
+        sh "./mvnw -Pprod -DskipTests verify jib:dockerBuild"
     }
 
     stage('本地部署运行docker-compose') {
