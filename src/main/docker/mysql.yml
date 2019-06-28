@@ -6,8 +6,15 @@ services:
     #     - ~/volumes/jhipster/jhi_oauth2_app1/mysql/:/var/lib/mysql/
     environment:
       - MYSQL_USER=root
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD=a1b2c3
+      #- MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=jhi_oauth2_app1
+
     ports:
       - 3307:3306
+    volumes:
+      - jhi_oauth2_app1_data:/var/lib/mysql
     command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8mb4 --explicit_defaults_for_timestamp
+volumes:
+  jhi_oauth2_app1_data:
+    external: true
