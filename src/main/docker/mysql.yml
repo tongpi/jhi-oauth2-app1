@@ -1,7 +1,7 @@
 version: '2'
 services:
   jhi_oauth2_app1-mysql:
-    image: mysql:5.7.13
+    image: mysql:8.0.16
     # volumes:
     #     - ~/volumes/jhipster/jhi_oauth2_app1/mysql/:/var/lib/mysql/
     environment:
