@@ -5,7 +5,7 @@ services:
     # volumes:
     #     - ~/volumes/jhipster/jhi_oauth2_app1/mysql/:/var/lib/mysql/
     environment:
-      - MYSQL_USER=root
+      - MYSQL_USER=wangf
       - MYSQL_PASSWORD=a1b2c3
       - MYSQL_ROOT_PASSWORD=a1b2c3
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
