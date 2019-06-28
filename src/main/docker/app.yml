@@ -29,3 +29,6 @@ services:
     extends:
       file: keycloak.yml
       service: keycloak
+volumes:
+  jhi_oauth2_app1_data:
+    external: true
