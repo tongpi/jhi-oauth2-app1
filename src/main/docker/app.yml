@@ -6,7 +6,7 @@ services:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,swagger
       - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-      - SPRING_DATASOURCE_URL=jdbc:mysql://jhi_oauth2_app1-mysql:3306/jhi_oauth2_app1?user=wangf&password=a1b2c3&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+      - SPRING_DATASOURCE_URL=jdbc:mysql://jhi_oauth2_app1-mysql:3306/jhi_oauth2_app1?&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false
       - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=rac6pHBoA96Qv6vSOB8fsEhXD5Ya
       - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=LlL6hGNeKfJ9Dolve2aWdjTml3oa
       - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_NAME=OIDC测试应用
@@ -29,6 +29,6 @@ services:
     extends:
       file: keycloak.yml
       service: keycloak
-volumes:
-  jhi_oauth2_app1_data:
-    external: true
+#volumes:
+#  jhi_oauth2_app1_data:
+#    external: true
